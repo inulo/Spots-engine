@@ -6,8 +6,8 @@ const clientSecret = 'ISGFWPUU23SZCCYOWFDUOKPQWFKZI1CGD1TCS0HI0T2M2XEQ';
 const url = 'https://api.foursquare.com/v2/venues/explore?near=';
 
 // OpenWeather Info
-// const openWeatherKey = '7f8eeef97f46844f0755cec3950d3ff6';
-const weatherUrl = 'https://api.openweathermap.org/data/2.5/weather?appid=7f8eeef97f46844f0755cec3950d3ff6&units=metric';
+const openWeatherKey = '7f8eeef97f46844f0755cec3950d3ff6';
+const weatherUrl = 'https://api.openweathermap.org/data/2.5/weather';
 
 // Page Elements
 const $input = $('#city');
@@ -37,7 +37,7 @@ const getVenues = async () => {
 };
 
 const getForecast = async () => {
-  const urlToFetch = `${weatherUrl}?&q=${$input.val()}`;
+  const urlToFetch = `${weatherUrl}?&q=${$input.val()}&APPID=${openWeatherKey}`;
 
   try {
     const response = await fetch(urlToFetch);
